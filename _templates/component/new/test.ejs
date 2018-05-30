@@ -1,0 +1,22 @@
+---
+to: src/components/<%= h.inflection.undasherize(name) %>/<%= h.inflection.undasherize(name) %>Test.tsx
+---
+<% const comp = h.inflection.undasherize(name) -%>
+/// <reference types="@types/jest" />
+import * as React from "react";
+
+import * as renderer from "react-test-renderer";
+
+import { <%= comp %> } from "./index";
+
+
+describe("<%= comp %>", () => (
+    it("renders correctly", () => {
+        const tree = renderer
+            .create(<<%= comp %>  />
+            )
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    })
+));
+

@@ -1,0 +1,39 @@
+---
+to: src/components/<%= h.inflection.undasherize(name) %>/<%= h.inflection.undasherize(name) %>.tsx
+---
+<% const comp = h.inflection.undasherize(name) -%>
+import * as React from "react";
+
+import * as styles from "./<%= comp %>.scss";
+
+interface Props {
+    style?: React.CSSProperties;
+}
+<% if(locals.class) { -%>
+interface State {
+    myProp?: boolean;
+}
+
+const INITIAL_STATE: State = {
+    myProp: true,
+};
+
+export class <%= comp %> extends React.PureComponent<Props, State> {
+    public state = INITIAL_STATE;
+
+    public render() {
+        return (
+            <div className={styles.base} style={this.props.style}>
+                {this.props.children}
+            </div>
+        );
+    }
+}
+<% } else { %>
+export const <%= comp %>: React.SFC<Props> = ({ children, style }) => (
+    <div className={styles.base} style={style}>
+        {children}
+    </div>
+);
+<% } -%>
+export default <%= comp %>;

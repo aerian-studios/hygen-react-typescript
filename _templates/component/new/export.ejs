@@ -1,0 +1,5 @@
+---
+to: src/components/<%= h.inflection.undasherize(name) %>/index.ts
+---
+<% const comp = h.inflection.undasherize(name) -%>
+export { <%= comp %> } from "./<%= comp %>";
