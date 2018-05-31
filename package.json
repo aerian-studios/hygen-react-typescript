@@ -1,8 +1,9 @@
 {
-  "name": "aerian-react-generators",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:ascorbic/aerian-react-generators.git",
-  "author": "Matt Kane <ascorbic@gmail.com>",
-  "license": "MIT"
+    "name": "hygen-react-typescript",
+    "description": "React TypeScript code generator",
+    "version": "1.0.1",
+    "main": "index.js",
+    "repository": "git@github.com:aerian-studios/hygen-react-typescript.git",
+    "author": "Matt Kane <m@mk.gg>",
+    "license": "MIT"
 }
