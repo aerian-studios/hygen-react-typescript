@@ -5,18 +5,20 @@ to: src/components/<%= h.inflection.undasherize(name) %>/<%= h.inflection.undash
 /// <reference types="@types/jest" />
 import * as React from "react";
 
-import * as renderer from "react-test-renderer";
+import {
+    render,
+    cleanup
+} from 'react-testing-library';
 
 import { <%= comp %> } from "./index";
 
+afterEach(cleanup);
 
-describe("<%= comp %>", () => (
+describe("<%= comp %>", () => {
     it("renders correctly", () => {
-        const tree = renderer
-            .create(<<%= comp %>  />
-            )
-            .toJSON();
-        expect(tree).toMatchSnapshot();
-    })
-));
+        const { container } = render(<<%= comp %>  />)
+            
+        expect(container).toMatchSnapshot();
+    });
+});
 
