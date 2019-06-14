@@ -6,8 +6,7 @@ import * as React from "react";
 
 import * as styles from "./<%= comp %>.scss";
 
-interface Props {
-    style?: React.CSSProperties;
+interface Props extends React.HTMLAttributes<HTMLElement> {
 }
 <% if(locals.class) { -%>
 interface State {
@@ -30,7 +29,7 @@ export class <%= comp %> extends React.PureComponent<Props, State> {
     }
 }
 <% } else { %>
-export const <%= comp %>: React.SFC<Props> = ({ children, style }) => (
+export const <%= comp %>: React.FC<Props> = ({ children, style }) => (
     <div className={styles.base} style={style}>
         {children}
     </div>
